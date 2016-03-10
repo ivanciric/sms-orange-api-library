@@ -5,6 +5,9 @@ before_install:
   - composer install
 before_script:
   - composer update
+branches:
+  only:
+    - master
 script: phpunit
 notifications:
     on_success: never
