@@ -18,6 +18,7 @@ class Cruise extends Main implements Bookable
     private $apiUrl;
     private $reflection;
     private $apiParams;
+    private $token;
 
     /**
      * Cruise constructor.
@@ -26,9 +27,11 @@ class Cruise extends Main implements Bookable
      * the api parameters.
      *
      */
-    public function __construct()
+    public function __construct($token)
     {
         parent::__construct();
+
+        $this->token = $token;
 
         $this->reflection = new \ReflectionClass(__CLASS__);
 
@@ -39,7 +42,7 @@ class Cruise extends Main implements Bookable
         $this->apiUrl = $this->config->get("app.{$this->serviceName}.url");
 
         $this->apiParams = [
-            'api_token' => $this->config->get("app.api_token"),
+            'api_token' => $token,
             'api_type' => $this->config->get("app.{$this->serviceName}.response_type"),
         ];
     }
