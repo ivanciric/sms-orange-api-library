@@ -36,7 +36,19 @@ if (!empty($_POST)) {
     $bookingStep = $_POST['step'];
     $containerName = $_POST['container'];
 
-    $dispatcher = new Dispatcher(new $serviceClass);
+    /*
+    |--------------------------------------------------------------------------
+    | API Token
+    |--------------------------------------------------------------------------
+    |
+    | This is the API token given to you by the Orange Travel,
+    | upon your registration. It is a combination of many
+    | unique user specific parameters.
+    |
+    */
+    $token = '';
+
+    $dispatcher = new Dispatcher(new $serviceClass($token));
 
     /*
     |--------------------------------------------------------------------------
