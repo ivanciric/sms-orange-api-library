@@ -21,8 +21,7 @@
   },
   "require": {
     "illuminate/config": "4.1.*",
-    "mashape/unirest-php": "2.*",
-    "lib-curl": ""
+    "mashape/unirest-php": "2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.5.*"
