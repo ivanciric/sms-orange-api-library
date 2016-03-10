@@ -15,7 +15,7 @@ return [
         |
         */
 
-        'url' => 'http://systems.orangetravelgroup.com/tours/crawler/cruises/',
+        'url' => 'http://crawler.local/cruises/',
 
         /*
         |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     ],
 
     'Tour' => [
-        'url' => 'http://systems.orangetravelgroup.com/tours/crawler/tours/',
+        'url' => 'http://crawler.local/tours/',
         'response_type' => 'json',
         'methods' => [
             'search' => 'show-tours/',
