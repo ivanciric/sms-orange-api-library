@@ -1,12 +1,11 @@
 language: php
 php:
   - '5.4'
-  - '5.5'
 before_install:
   - composer install
 before_script:
   - composer update
-script: phpunit --configuration phpunit.xml --coverage-text
+script: phpunit
 notifications:
     on_success: never
     on_failure: never
