@@ -52,7 +52,7 @@ return [
     ],
 
     'Tour' => [
-        'url' => 'http://crawler.local/tours/',
+        'url' => 'http://systems.orangetravelgroup.com/tours/crawler/tours/',
         'response_type' => 'json',
         'methods' => [
             'search' => 'show-tours/',
