@@ -10,7 +10,9 @@ class DispatcherCruiseTest extends PHPUnit_Framework_TestCase
      */
     public function testEachStepReturnsUnirestObject($step, $params)
     {
-        $dispatcher = new Dispatcher(new Cruise);
+        $token = 'test-token';
+
+        $dispatcher = new Dispatcher(new Cruise($token));
 
         $response = $dispatcher->$step($params);
 
