@@ -15,7 +15,7 @@ return [
         |
         */
 
-        'url' => 'http://crawler.local/cruises/',
+        'url' => 'http://systems.orangetravelgroup.com/tours/crawler/cruises/',
 
         /*
         |--------------------------------------------------------------------------
