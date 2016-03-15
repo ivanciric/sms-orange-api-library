@@ -41,6 +41,8 @@ return [
         'methods' => [
             'search' => 'show-cruises/',
             'select' => '',
+            'getComponents' => 'get-components/',
+            'getAvailableCategories' => 'get-available-categories/',
         ],
 
 

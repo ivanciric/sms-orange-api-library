@@ -1,9 +1,6 @@
 <?php
 namespace SmsOrange;
 
-use SmsOrange\Cruise\CostaCruisesWebservice;
-use SmsOrange\Cruise\ManualCruisesWebservice;
-
 /**
  * Class Cruise
  *
@@ -91,14 +88,28 @@ class Cruise extends Main implements Bookable
 
     public function getComponents($parameters = false)
     {
-        // service specific...
-        // get webservice name from parameters
-        // call this method on specific webservice
+        $webserviceId = $parameters['webservice'];
+
+        $webserviceName = $this->config->get("app.{$this->serviceName}.webservices.{$webserviceId}");
+
+        $webserviceClass = "\\SmsOrange\\Cruise\\$webserviceName";
+
+        $ws = new $webserviceClass($this->apiUrl, $this->apiParams);
+
+        return $ws->getComponents($parameters);
     }
 
     public function getAvailableCategories($parameters = false)
     {
-        // service specific...
+        $webserviceId = $parameters['webservice'];
+
+        $webserviceName = $this->config->get("app.{$this->serviceName}.webservices.{$webserviceId}");
+
+        $webserviceClass = "\\SmsOrange\\Cruise\\$webserviceName";
+
+        $ws = new $webserviceClass($this->apiUrl, $this->apiParams);
+
+        return $ws->getAvailableCategories($parameters);
     }
 
     public function getCabins($parameters = false)

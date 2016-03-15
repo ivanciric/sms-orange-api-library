@@ -46,9 +46,13 @@ if (!empty($_POST)) {
     | unique user specific parameters.
     |
     */
-    $token = '';
+    $token = '84-5wxD3SmdDDRghaJmdaw83GDUPohCjbvFz'; //'130-ummtyxIAsJjJD6YpY9SXMorCysB1DwNYJ'; // 84-5wxD3SmdDDRghaJmdaw83GDUPohCjbvFz
 
     $dispatcher = new Dispatcher(new $serviceClass($token));
+
+    if($bookingStep == 'getComponents'){
+        setcookie('cruise-guests', json_encode($_POST['guests']));
+    }
 
     /*
     |--------------------------------------------------------------------------

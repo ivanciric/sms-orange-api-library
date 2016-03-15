@@ -371,7 +371,7 @@
                                 id="submit"
                                 data-control="api"
                                 class="btn btn-success"
-                                <?php echo ($info) ? 'disabled="disabled"' : null ?>
+                                <?php //echo ($info) ? 'disabled="disabled"' : null ?>
                             >Submit</button>
                         </div>
                     </form>
@@ -500,7 +500,7 @@
         $('.collapse').collapse();
         $('.dropdown-toggle').dropdown();
         <?php if($info): ?>
-            $("#modalInfo").modal();
+            //$("#modalInfo").modal();
         <?php endif; ?>
     });
 

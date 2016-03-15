@@ -101,8 +101,7 @@
 
                 <div class="book_form col-md-4">
 
-                    <form role="form" >
-
+                    <form role="form" id="cruise-select" data-type="Cruise" data-step="GetComponents" data-container="components" data-webservice="21" >
 
                                 <div class="col-md-12 form-group">
 
@@ -110,7 +109,7 @@
                                         Type of Customers*
                                     </label>
 
-                                        <select name="cruise_data[fare_code]" id="fare-code" class="form-control fare-code">
+                                        <select name="fare_code" id="fare-code" class="form-control fare-code">
                                             <option value=""> - Choose -</option>
                                             <option value="IND_CC">CostaClub</option>
                                             <option value="hm">Honeymooners</option>
@@ -121,7 +120,6 @@
                                         <span style="display: none" class="error">Please select type of client</span>
 
                                 </div>
-
 
                                 <div class="col-md-12 form-group cabin" style="display: none;">
                                     <label for="num-pax">
@@ -140,6 +138,12 @@
                                 </div>
 
                         <div class="col-md-12 form-group pax-age" style="display: none;"></div>
+
+                        <input type="hidden" value="<?php echo $cruise_details->Code; ?>" name="cruise-code">
+
+                        <div class="col-md-12 form-group pax-submit" style="display: none;">
+                            <button type="submit" class="btn btn-success" data-control="api">Next</button>
+                        </div>
 
 
 

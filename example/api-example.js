@@ -19,19 +19,24 @@ function formatDataForCruise(data) {
 }
 
 function initRequestHandler() {
-    $("[data-control=api]").off('click');
-    $("[data-control=api]").on('click', function (e) {
-        e.preventDefault();
-        callAjax(
-            {
-                data: $(this).parents('form').serialize(),
-                type: $(this).parents('form').data('type'), // Cruise, Tour
-                webservice: $(this).parents('form').data('webservice'), // int
-                step: $(this).parents('form').data('step'), // Search, Select, Book
-                container: $(this).parents('form').data('container') // Search, Select, Book
-            }
-        );
+
+    $("[data-control=api]").each(function(){
+        $(this).off('click');
+        $(this).on('click', function (e) {
+            e.preventDefault();
+            callAjax(
+                {
+                    data: $(this).parents('form').serialize(),
+                    type: $(this).parents('form').data('type'), // Cruise, Tour
+                    webservice: $(this).parents('form').data('webservice'), // int
+                    step: $(this).parents('form').data('step'), // Search, Select, Book
+                    container: $(this).parents('form').data('container') // Search, Select, Book
+                }
+            );
+        });
     });
+
+
 }
 
 function callAjax(data) {
@@ -77,15 +82,16 @@ function CruiseSearchCallback() {
 
 function CruiseSelectCallback() {
 
-    console.log('select ok');
-
     initRequestHandler();
 
     customerTypeInit();
-
-
 }
 
+function CruiseGetComponentsCallback() {
+
+    initRequestHandler();
+
+}
 
 function initDataTable(elem) {
 
@@ -139,8 +145,10 @@ function customerAgeInit() {
         if($(this).val()){
             generateAgeField($(this).val());
             $('.pax-age').show();
+            $('.pax-submit').show();
         } else {
             $('.pax-age').hide();
+            $('.pax-submit').hide();
         }
     });
 }
@@ -151,7 +159,7 @@ function generateAgeField(num) {
 
     for( var i = 0; i < num; i++ ) {
         var pax_num = i + 1;
-        $('.pax-age').append('<label>Pax ' + pax_num + ' age </label> <input type="number" name="pax-' + pax_num + '-age" maxlength="2"><br/>');
+        $('.pax-age').append('<label>Pax ' + pax_num + ' age </label> <input type="number" name="guests[]" maxlength="2"><br/>');
     }
 }
 
@@ -186,7 +194,7 @@ function cabinInit() {
             // add inputs
             do {
                 var input_count = age_input_wrapper.find('input').length;
-                age_input_wrapper.append('<div class="row"><label class="control-label col-md-2 p-t-5">Age of customers*</label><div class="col-md-3"><input class="form-control" type="text" autocomplete="off" name="cruise_data[age_' + (++input_count).toString() + ']" />' + age_error + '</div></div></div>');
+                age_input_wrapper.append('<div class="row"><label class="control-label col-md-2 p-t-5">Age of customers*</label><div class="col-md-3"><input class="form-control" type="text" autocomplete="off" name="guests[]" />' + age_error + '</div></div></div>');
                 --diff;
             } while (diff > 0);
         } // if

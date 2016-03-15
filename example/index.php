@@ -99,7 +99,7 @@
 
     $(document).ready(function () {
         <?php if($info): ?>
-            $("#modalInfo").modal();
+            //$("#modalInfo").modal();
         <?php endif; ?>
     });
 
